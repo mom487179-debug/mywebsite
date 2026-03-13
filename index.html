@@ -2,52 +2,100 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WHATBOT</title>
-
 <style>
-body{
-background:#0f0f0f;
-color:white;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f0f0f,#1a1a2e,#16213e);
+color:white;
 text-align:center;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
 }
 
 .box{
-margin-top:100px;
+background:rgba(0,0,0,0.6);
+padding:60px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+box-shadow:0 0 40px rgba(0,0,0,0.7);
+}
+
+h1{
+font-size:60px;
+margin-bottom:20px;
+color:#7289da;
+text-shadow:0 0 20px #5865F2;
+}
+
+p{
+font-size:20px;
+margin-bottom:30px;
+opacity:0.9;
 }
 
 button{
 background:#5865F2;
-color:white;
 border:none;
-padding:15px 30px;
+padding:15px 35px;
 font-size:20px;
-border-radius:10px;
+border-radius:12px;
+color:white;
 cursor:pointer;
+margin:10px;
+transition:0.3s;
 }
 
 button:hover{
 background:#4752C4;
+transform:scale(1.1);
+box-shadow:0 0 20px #5865F2;
 }
+
+.footer{
+position:absolute;
+bottom:20px;
+opacity:0.6;
+font-size:14px;
+}
+
+.glow{
+position:absolute;
+width:600px;
+height:600px;
+background:#5865F2;
+filter:blur(200px);
+opacity:0.3;
+z-index:-1;
+}
+
 </style>
 </head>
-
 <body>
-
+<div class="glow"></div>
 <div class="box">
-
 <h1>🤖 WHATBOT</h1>
-
 <p>บอทกิจกรรมสุดมันสำหรับ Discord</p>
-
-<img src="https://i.imgur.com/xxxx.png" width="200">
-
-<br><br>
-
-<a href="https://discord.com/oauth2/authorize?client_id=1432715109913858078&permissions=8&integration_type=0&scope=bot>➕ เชิญบอท</button>
+<a href="https://discord.com/oauth2/authorize?client_id=1432715109913858078&permissions=8&integration_type=0&scope=bot">
+<button>➕ เพิ่มบอท</button>
 </a>
-
+<a href="https://discord.gg/whatdiwaa">
+<button>💬 เข้า Discord</button>
+</a>
 </div>
-
+<div class="footer">
+WHATBOT ©
+</div>
 </body>
 </html>
