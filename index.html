@@ -4,98 +4,153 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WHATBOT</title>
+
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:sans-serif;
-}
-
 body{
-background:linear-gradient(135deg,#0f0f0f,#1a1a2e,#16213e);
+margin:0;
+font-family:sans-serif;
 color:white;
+background:linear-gradient(270deg,#000000,#111,#1a1a1a,#000);
+background-size:800% 800%;
+animation:bgmove 15s infinite;
 text-align:center;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-overflow:hidden;
 }
 
-.box{
-background:rgba(0,0,0,0.6);
-padding:60px;
-border-radius:20px;
-backdrop-filter:blur(10px);
-box-shadow:0 0 40px rgba(0,0,0,0.7);
+@keyframes bgmove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.container{
+margin-top:120px;
 }
 
 h1{
 font-size:60px;
-margin-bottom:20px;
-color:#7289da;
+letter-spacing:5px;
 text-shadow:0 0 20px #5865F2;
 }
 
 p{
-font-size:20px;
-margin-bottom:30px;
-opacity:0.9;
+opacity:0.8;
+}
+
+.buttons{
+margin-top:40px;
 }
 
 button{
-background:#5865F2;
-border:none;
 padding:15px 35px;
-font-size:20px;
-border-radius:12px;
-color:white;
-cursor:pointer;
 margin:10px;
+border:none;
+border-radius:12px;
+font-size:18px;
+cursor:pointer;
 transition:0.3s;
 }
 
-button:hover{
-background:#4752C4;
+.invite{
+background:#5865F2;
+color:white;
+box-shadow:0 0 20px #5865F2;
+}
+
+.invite:hover{
 transform:scale(1.1);
+box-shadow:0 0 40px #5865F2;
+}
+
+.discord{
+background:#111;
+color:white;
+border:1px solid #5865F2;
+}
+
+.discord:hover{
+background:#5865F2;
+}
+
+.features{
+margin-top:120px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.box{
+background:rgba(255,255,255,0.05);
+border-radius:15px;
+padding:30px;
+width:250px;
+transition:0.3s;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.box:hover{
+transform:translateY(-10px);
 box-shadow:0 0 20px #5865F2;
 }
 
 .footer{
-position:absolute;
-bottom:20px;
-opacity:0.6;
-font-size:14px;
-}
-
-.glow{
-position:absolute;
-width:600px;
-height:600px;
-background:#5865F2;
-filter:blur(200px);
-opacity:0.3;
-z-index:-1;
+margin-top:120px;
+padding:30px;
+opacity:0.5;
 }
 
 </style>
 </head>
+
 <body>
-<div class="glow"></div>
-<div class="box">
-<h1>🤖 WHATBOT</h1>
+
+<div class="container">
+
+<h1>WHATBOT</h1>
 <p>บอทกิจกรรมสุดมันสำหรับ Discord</p>
-<a href="https://discord.com/oauth2/authorize?client_id=1432715109913858078&permissions=8&integration_type=0&scope=bot">
-<button>➕ เพิ่มบอท</button>
+
+<div class="buttons">
+
+<a href="https://discord.com/oauth2/authorize?client_id=1432715109913858078&permissions=8&scope=bot" target="_blank">
+<button class="invite">➕ เพิ่มบอท</button>
 </a>
-<a href="https://discord.gg/whatdiwaa">
-<button>💬 เข้า Discord</button>
+
+<a href="https://discord.gg/whatdiwaa" target="_blank">
+<button class="discord">💬 เข้า Discord</button>
 </a>
+
 </div>
+
+</div>
+
+<div class="features">
+
+<div class="box">
+<h2>⚡ เร็ว</h2>
+<p>คำสั่งทำงานเร็วและเสถียร</p>
+</div>
+
+<div class="box">
+<h2>🎮 กิจกรรม</h2>
+<p>มีเกมและกิจกรรมสนุกๆ</p>
+</div>
+
+<div class="box">
+<h2>🛡 ปลอดภัย</h2>
+<p>ระบบป้องกันสแปมและดูแลเซิร์ฟเวอร์</p>
+</div>
+
+<div class="box">
+<h2>🤖 ใช้ง่าย</h2>
+<p>คำสั่งเข้าใจง่าย</p>
+</div>
+
+</div>
+
 <div class="footer">
-WHATBOT ©
+WHATBOT © 2026
 </div>
+
 </body>
 </html>
