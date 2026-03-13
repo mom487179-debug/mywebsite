@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>WHATBOT</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* ---------------- GLOBAL ---------------- */
 
 *{
 margin:0;
@@ -26,7 +22,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* ---------------- NAVBAR ---------------- */
+/* NAVBAR */
 
 nav{
 position:fixed;
@@ -55,7 +51,7 @@ nav a:hover{
 opacity:1;
 }
 
-/* ---------------- HERO ---------------- */
+/* HERO */
 
 .hero{
 height:100vh;
@@ -64,15 +60,6 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:linear-gradient(270deg,#000,#111,#000);
-background-size:400% 400%;
-animation:bgmove 15s infinite;
-}
-
-@keyframes bgmove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
 }
 
 .hero h2{
@@ -81,11 +68,8 @@ text-shadow:0 0 20px #5865F2;
 }
 
 .hero p{
-margin-top:10px;
 opacity:0.7;
 }
-
-/* ---------------- BUTTONS ---------------- */
 
 .buttons{
 margin-top:30px;
@@ -109,7 +93,6 @@ box-shadow:0 0 20px #5865F2;
 
 .invite:hover{
 transform:scale(1.1);
-box-shadow:0 0 40px #5865F2;
 }
 
 .discord{
@@ -122,22 +105,12 @@ border:1px solid #5865F2;
 background:#5865F2;
 }
 
-.social{
-background:#111;
-color:white;
-border:1px solid #555;
-}
-
-.social:hover{
-background:#444;
-}
-
-/* ---------------- BANNER ---------------- */
+/* BANNER */
 
 .banner{
 width:100%;
 height:350px;
-background:url("https://cdn.discordapp.com/attachments/1423321407420371035/1481354050992734402/IMG_4587.jpg?ex=69b5a4f7&is=69b45377&hm=19338b653735b97bec7ad79c897d69e4c642721825696c417108ff5fad81cacf&") center/cover no-repeat;
+background:url("https://cdn.discordapp.com/attachments/1423321407420371035/1481354050992734402/IMG_4587.jpg") center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -145,12 +118,32 @@ justify-content:center;
 
 .banner h3{
 font-size:40px;
-background:rgba(0,0,0,0.5);
+background:rgba(0,0,0,0.6);
 padding:20px;
 border-radius:10px;
 }
 
-/* ---------------- FEATURES ---------------- */
+/* SERVER STATS */
+
+.server{
+padding:80px 20px;
+text-align:center;
+}
+
+.server-box{
+display:inline-block;
+background:#111;
+padding:30px 60px;
+border-radius:15px;
+box-shadow:0 0 20px #5865F2;
+}
+
+.server-box h3{
+font-size:40px;
+color:#5865F2;
+}
+
+/* FEATURES */
 
 .features{
 padding:100px 20px;
@@ -165,8 +158,8 @@ width:250px;
 background:#111;
 padding:30px;
 border-radius:15px;
-text-align:center;
 transition:0.3s;
+text-align:center;
 }
 
 .feature:hover{
@@ -174,11 +167,43 @@ transform:translateY(-10px);
 box-shadow:0 0 20px #5865F2;
 }
 
-.feature h3{
+/* DEV */
+
+.dev{
+padding:100px 20px;
+text-align:center;
+}
+
+.dev-container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+margin-top:30px;
+}
+
+.dev-card{
+width:200px;
+background:#111;
+padding:25px;
+border-radius:15px;
+transition:0.3s;
+text-align:center;
+}
+
+.dev-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px #5865F2;
+}
+
+.dev-card img{
+width:80px;
+height:80px;
+border-radius:50%;
 margin-bottom:10px;
 }
 
-/* ---------------- SOCIAL SECTION ---------------- */
+/* SOCIAL */
 
 .social-section{
 text-align:center;
@@ -200,7 +225,7 @@ border:1px solid #333;
 background:#5865F2;
 }
 
-/* ---------------- FOOTER ---------------- */
+/* FOOTER */
 
 footer{
 text-align:center;
@@ -209,57 +234,32 @@ background:#111;
 opacity:0.7;
 }
 
-/* ---------------- MOBILE ---------------- */
-
-@media(max-width:768px){
-
-.hero h2{
-font-size:40px;
-}
-
-nav{
-padding:10px 20px;
-}
-
-}
-
 </style>
-
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-
 <nav>
-
 <h1>WHATBOT</h1>
-
 <div>
-
 <a href="#">Home</a>
 <a href="#features">Features</a>
 <a href="#social">Social</a>
-
 </div>
-
 </nav>
-
-<!-- HERO -->
 
 <section class="hero">
 
 <h2>WHATBOT</h2>
-
 <p>บอทกิจกรรมสุดมันสำหรับ Discord</p>
 
 <div class="buttons">
 
-<a href="https://discord.com/oauth2/authorize?client_id=1432715109913858078&permissions=8&scope=bot" target="_blank">
+<a href="https://discord.com/oauth2/authorize?client_id=1432715109913858078&permissions=8&scope=bot">
 <button class="invite">➕ เพิ่มบอท</button>
 </a>
 
-<a href="https://discord.gg/whatdiwaa" target="_blank">
+<a href="https://discord.gg/whatdiwaa">
 <button class="discord">💬 เข้า Discord</button>
 </a>
 
@@ -267,15 +267,20 @@ padding:10px 20px;
 
 </section>
 
-<!-- BANNER -->
-
 <div class="banner">
-
 <h3>Welcome to WHATBOT</h3>
-
 </div>
 
-<!-- FEATURES -->
+<section class="server">
+
+<h2>👥 สมาชิกในเซิร์ฟเวอร์</h2>
+
+<div class="server-box">
+<h3 id="members">Loading...</h3>
+<p>คนออนไลน์</p>
+</div>
+
+</section>
 
 <section class="features" id="features">
 
@@ -286,12 +291,12 @@ padding:10px 20px;
 
 <div class="feature">
 <h3>🎮 เกม</h3>
-<p>มีกิจกรรมสนุกมากมาย</p>
+<p>มีกิจกรรมสนุก</p>
 </div>
 
 <div class="feature">
 <h3>🛡 ปลอดภัย</h3>
-<p>ระบบป้องกันสแปม</p>
+<p>กันสแปม</p>
 </div>
 
 <div class="feature">
@@ -301,7 +306,33 @@ padding:10px 20px;
 
 </section>
 
-<!-- SOCIAL -->
+<section class="dev">
+
+<h2>Developer Team</h2>
+
+<div class="dev-container">
+
+<div class="dev-card">
+<img src="https://cdn.discordapp.com/embed/avatars/0.png">
+<h3>DEV 1</h3>
+<p>Bot Developer</p>
+</div>
+
+<div class="dev-card">
+<img src="https://cdn.discordapp.com/embed/avatars/1.png">
+<h3>DEV 2</h3>
+<p>Web Developer</p>
+</div>
+
+<div class="dev-card">
+<img src="https://cdn.discordapp.com/embed/avatars/2.png">
+<h3>DEV 3</h3>
+<p>System Developer</p>
+</div>
+
+</div>
+
+</section>
 
 <section class="social-section" id="social">
 
@@ -309,10 +340,8 @@ padding:10px 20px;
 
 <div class="social-links">
 
-<a href="https://www.instagram.com/whatofficial.gg?igsh=cjZtY29zaTY5bzA0">📸 แอคไอจีวอท</a>
-
-<a href="https://www.instagram.com/angelwhatttt?igsh=dHpiNDJqY3Z0N2Rs">🎥 แอคไอจีแองเจิ้ลวอท</a>
-
+<a href="https://www.instagram.com/whatofficial.gg">📸 Instagram</a>
+<a href="https://www.instagram.com/angelwhatttt">🎥 Instagram 2</a>
 <a href="https://discord.gg/whatdiwaa">💬 Discord</a>
 
 </div>
@@ -320,10 +349,21 @@ padding:10px 20px;
 </section>
 
 <footer>
-
 WHATBOT © 2026
-
 </footer>
+
+<script>
+
+const serverID = "1196513322443477102";
+
+fetch(`https://discord.com/api/guilds/${serverID}/widget.json`)
+.then(res=>res.json())
+.then(data=>{
+document.getElementById("members").innerText =
+data.presence_count;
+});
+
+</script>
 
 </body>
 </html>
