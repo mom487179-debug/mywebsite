@@ -11,6 +11,8 @@
 
 <style>
 
+/* ---------------- GLOBAL ---------------- */
+
 *{
 margin:0;
 padding:0;
@@ -24,44 +26,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* GALAXY BACKGROUND */
-
-.galaxy-bg{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-1;
-background:radial-gradient(ellipse at bottom,#1b2735 0%,#090a0f 100%);
-overflow:hidden;
-}
-
-.galaxy-bg::before,
-.galaxy-bg::after{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:200%;
-height:200%;
-background-image:
-radial-gradient(2px 2px #fff,transparent),
-radial-gradient(1px 1px #fff,transparent);
-background-size:100px 100px;
-animation:starsMove 120s linear infinite;
-opacity:0.4;
-}
-
-.galaxy-bg::after{
-animation-duration:200s;
-opacity:0.6;
-}
-
-@keyframes starsMove{
-from{transform:translateY(0);}
-to{transform:translateY(-2000px);}
-}
+/* ---------------- NAVBAR ---------------- */
 
 nav{
 position:fixed;
@@ -90,6 +55,8 @@ nav a:hover{
 opacity:1;
 }
 
+/* ---------------- HERO ---------------- */
+
 .hero{
 height:100vh;
 display:flex;
@@ -117,6 +84,8 @@ text-shadow:0 0 20px #5865F2;
 margin-top:10px;
 opacity:0.7;
 }
+
+/* ---------------- BUTTONS ---------------- */
 
 .buttons{
 margin-top:30px;
@@ -153,23 +122,35 @@ border:1px solid #5865F2;
 background:#5865F2;
 }
 
-.bot-status{
-margin-top:20px;
+.social{
 background:#111;
-padding:10px 20px;
-border-radius:10px;
-box-shadow:0 0 10px #5865F2;
-font-size:18px;
+color:white;
+border:1px solid #555;
 }
+
+.social:hover{
+background:#444;
+}
+
+/* ---------------- BANNER ---------------- */
 
 .banner{
 width:100%;
 height:350px;
-background:url("https://cdn.discordapp.com/attachments/1423321407420371035/1481354050992734402/IMG_4587.jpg") center/cover no-repeat;
+background:url("https://cdn.discordapp.com/attachments/1423321407420371035/1481354050992734402/IMG_4587.jpg?ex=69b5a4f7&is=69b45377&hm=19338b653735b97bec7ad79c897d69e4c642721825696c417108ff5fad81cacf&") center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
 }
+
+.banner h3{
+font-size:40px;
+background:rgba(0,0,0,0.5);
+padding:20px;
+border-radius:10px;
+}
+
+/* ---------------- FEATURES ---------------- */
 
 .features{
 padding:100px 20px;
@@ -197,6 +178,8 @@ box-shadow:0 0 20px #5865F2;
 margin-bottom:10px;
 }
 
+/* ---------------- SOCIAL SECTION ---------------- */
+
 .social-section{
 text-align:center;
 padding:80px 20px;
@@ -217,12 +200,16 @@ border:1px solid #333;
 background:#5865F2;
 }
 
+/* ---------------- FOOTER ---------------- */
+
 footer{
 text-align:center;
 padding:30px;
 background:#111;
 opacity:0.7;
 }
+
+/* ---------------- MOBILE ---------------- */
 
 @media(max-width:768px){
 
@@ -242,19 +229,23 @@ padding:10px 20px;
 
 <body>
 
-<div class="galaxy-bg"></div>
+<!-- NAVBAR -->
 
 <nav>
 
 <h1>WHATBOT</h1>
 
 <div>
+
 <a href="#">Home</a>
 <a href="#features">Features</a>
 <a href="#social">Social</a>
+
 </div>
 
 </nav>
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -274,15 +265,17 @@ padding:10px 20px;
 
 </div>
 
-<div class="bot-status">
-🤖 สถานะบอท : <span id="botStatus">กำลังตรวจสอบ...</span>
-</div>
-
 </section>
 
+<!-- BANNER -->
+
 <div class="banner">
+
 <h3>Welcome to WHATBOT</h3>
+
 </div>
+
+<!-- FEATURES -->
 
 <section class="features" id="features">
 
@@ -308,15 +301,17 @@ padding:10px 20px;
 
 </section>
 
+<!-- SOCIAL -->
+
 <section class="social-section" id="social">
 
 <h2>ติดตามเรา</h2>
 
 <div class="social-links">
 
-<a href="https://www.instagram.com/whatofficial.gg">📸 แอคไอจีวอท</a>
+<a href="https://www.instagram.com/whatofficial.gg?igsh=cjZtY29zaTY5bzA0">📸 แอคไอจีวอท</a>
 
-<a href="https://www.instagram.com/angelwhatttt">🎥 แอคไอจีแองเจิ้ลวอท</a>
+<a href="https://www.instagram.com/angelwhatttt?igsh=dHpiNDJqY3Z0N2Rs">🎥 แอคไอจีแองเจิ้ลวอท</a>
 
 <a href="https://discord.gg/whatdiwaa">💬 Discord</a>
 
@@ -325,23 +320,10 @@ padding:10px 20px;
 </section>
 
 <footer>
+
 WHATBOT © 2026
+
 </footer>
 
-<script>
-
-const botID = "1432715109913858078";
-
-fetch(`https://discord.com/api/users/${botID}`)
-.then(res=>res.json())
-.then(data=>{
-document.getElementById("botStatus").innerHTML="ออนไลน์ 🟢";
-})
-.catch(()=>{
-document.getElementById("botStatus").innerHTML="ออฟไลน์ 🔴";
-});
-
-</script>
-
 </body>
-</html>
+</html> 
