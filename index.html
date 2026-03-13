@@ -19,26 +19,48 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background: linear-gradient(270deg,#0f0c29,#302b63,#24243e);
-background-size:600% 600%;
-animation:bgmove 15s infinite;
+background:#0d0d0d;
 color:white;
 overflow-x:hidden;
 }
 
-@keyframes bgmove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
+/* GALAXY BACKGROUND */
 
-.stars{
+.galaxy-bg{
 position:fixed;
+top:0;
+left:0;
 width:100%;
 height:100%;
-background:url("https://cdn.discordapp.com/attachments/1423321407420371035/1481354050992734402/IMG_4587.jpg?ex=69b5a4f7&is=69b45377&hm=19338b653735b97bec7ad79c897d69e4c642721825696c417108ff5fad81cacf&");
-opacity:0.3;
 z-index:-1;
+background:radial-gradient(ellipse at bottom,#1b2735 0%,#090a0f 100%);
+overflow:hidden;
+}
+
+.galaxy-bg::before,
+.galaxy-bg::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:200%;
+height:200%;
+background-image:
+radial-gradient(2px 2px #fff,transparent),
+radial-gradient(1px 1px #fff,transparent);
+background-size:100px 100px;
+animation:starsMove 120s linear infinite;
+opacity:0.4;
+}
+
+.galaxy-bg::after{
+animation-duration:200s;
+opacity:0.6;
+}
+
+@keyframes starsMove{
+from{transform:translateY(0);}
+to{transform:translateY(-2000px);}
 }
 
 nav{
@@ -50,10 +72,22 @@ padding:15px 40px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+z-index:1000;
 }
 
 nav h1{
 color:#5865F2;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+opacity:0.8;
+}
+
+nav a:hover{
+opacity:1;
 }
 
 .hero{
@@ -63,23 +97,25 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+background:linear-gradient(270deg,#000,#111,#000);
+background-size:400% 400%;
+animation:bgmove 15s infinite;
 }
 
-.hero img{
-width:120px;
-border-radius:50%;
-box-shadow:0 0 20px #5865F2;
-margin-bottom:20px;
+@keyframes bgmove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 .hero h2{
-font-size:55px;
+font-size:60px;
 text-shadow:0 0 20px #5865F2;
 }
 
 .hero p{
-opacity:0.7;
 margin-top:10px;
+opacity:0.7;
 }
 
 .buttons{
@@ -104,6 +140,7 @@ box-shadow:0 0 20px #5865F2;
 
 .invite:hover{
 transform:scale(1.1);
+box-shadow:0 0 40px #5865F2;
 }
 
 .discord{
@@ -116,20 +153,94 @@ border:1px solid #5865F2;
 background:#5865F2;
 }
 
-.status{
+.bot-status{
 margin-top:20px;
-padding:10px 20px;
 background:#111;
+padding:10px 20px;
 border-radius:10px;
 box-shadow:0 0 10px #5865F2;
+font-size:18px;
+}
+
+.banner{
+width:100%;
+height:350px;
+background:url("https://cdn.discordapp.com/attachments/1423321407420371035/1481354050992734402/IMG_4587.jpg") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.banner h3{
+font-size:40px;
+background:rgba(0,0,0,0.5);
+padding:20px;
+border-radius:10px;
+}
+
+.features{
+padding:100px 20px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+}
+
+.feature{
+width:250px;
+background:#111;
+padding:30px;
+border-radius:15px;
+text-align:center;
+transition:0.3s;
+}
+
+.feature:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px #5865F2;
+}
+
+.feature h3{
+margin-bottom:10px;
+}
+
+.social-section{
+text-align:center;
+padding:80px 20px;
+}
+
+.social-links a{
+display:inline-block;
+margin:10px;
+padding:12px 25px;
+background:#111;
+border-radius:10px;
+text-decoration:none;
+color:white;
+border:1px solid #333;
+}
+
+.social-links a:hover{
+background:#5865F2;
 }
 
 footer{
 text-align:center;
 padding:30px;
 background:#111;
-margin-top:50px;
 opacity:0.7;
+}
+
+@media(max-width:768px){
+
+.hero h2{
+font-size:40px;
+}
+
+nav{
+padding:10px 20px;
+}
+
 }
 
 </style>
@@ -138,17 +249,23 @@ opacity:0.7;
 
 <body>
 
-<div class="stars"></div>
+<div class="galaxy-bg"></div>
 
 <nav>
+
 <h1>WHATBOT</h1>
+
+<div>
+<a href="#">Home</a>
+<a href="#features">Features</a>
+<a href="#social">Social</a>
+</div>
+
 </nav>
 
 <section class="hero">
 
-<img id="botAvatar" src="">
-
-<h2 id="botName">WHATBOT</h2>
+<h2>WHATBOT</h2>
 
 <p>บอทกิจกรรมสุดมันสำหรับ Discord</p>
 
@@ -164,8 +281,52 @@ opacity:0.7;
 
 </div>
 
-<div class="status">
-🤖 สถานะบอท : <span id="botStatus">กำลังโหลด...</span>
+<div class="bot-status">
+🤖 สถานะบอท : <span id="botStatus">กำลังตรวจสอบ...</span>
+</div>
+
+</section>
+
+<div class="banner">
+<h3>Welcome to WHATBOT</h3>
+</div>
+
+<section class="features" id="features">
+
+<div class="feature">
+<h3>⚡ เร็ว</h3>
+<p>คำสั่งทำงานรวดเร็ว</p>
+</div>
+
+<div class="feature">
+<h3>🎮 เกม</h3>
+<p>มีกิจกรรมสนุกมากมาย</p>
+</div>
+
+<div class="feature">
+<h3>🛡 ปลอดภัย</h3>
+<p>ระบบป้องกันสแปม</p>
+</div>
+
+<div class="feature">
+<h3>🤖 ใช้ง่าย</h3>
+<p>คำสั่งเข้าใจง่าย</p>
+</div>
+
+</section>
+
+<section class="social-section" id="social">
+
+<h2>ติดตามเรา</h2>
+
+<div class="social-links">
+
+<a href="https://www.instagram.com/whatofficial.gg">📸 แอคไอจีวอท</a>
+
+<a href="https://www.instagram.com/angelwhatttt">🎥 แอคไอจีแองเจิ้ลวอท</a>
+
+<a href="https://discord.gg/whatdiwaa">💬 Discord</a>
+
 </div>
 
 </section>
@@ -176,25 +337,16 @@ WHATBOT © 2026
 
 <script>
 
-const botID = "1432715109913858078"
+const botID = "1432715109913858078";
 
 fetch(`https://discord.com/api/users/${botID}`)
 .then(res=>res.json())
 .then(data=>{
-
-document.getElementById("botName").innerText=data.username
-
-document.getElementById("botAvatar").src=
-`https://cdn.discordapp.com/avatars/${botID}/${data.avatar}.png`
-
-document.getElementById("botStatus").innerHTML="ออนไลน์ 🟢"
-
+document.getElementById("botStatus").innerHTML="ออนไลน์ 🟢";
 })
 .catch(()=>{
-
-document.getElementById("botStatus").innerHTML="ออฟไลน์ 🔴"
-
-})
+document.getElementById("botStatus").innerHTML="ออฟไลน์ 🔴";
+});
 
 </script>
 
