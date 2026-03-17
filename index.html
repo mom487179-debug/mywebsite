@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy 2 Months 💖</title>
+<title>Happy 2 Monthsนะที่รัก 💖</title>
 
 <style>
 body{
@@ -28,9 +28,7 @@ button{
 }
 
 /* ซ่อน */
-.hidden{
-    display:none;
-}
+.hidden{ display:none; }
 
 /* กล่องข้อความ */
 #textBox{
@@ -40,7 +38,7 @@ button{
 }
 
 /* รูป */
-.slider img{
+#slide{
     width:80%;
     max-width:300px;
     border-radius:20px;
@@ -65,21 +63,21 @@ button{
 <!-- หน้า 1 -->
 <button id="startBtn">กดสิคะแฟนเค้าา 💖</button>
 
-<!-- หน้า 2 (ข้อความ) -->
+<!-- หน้า 2 -->
 <div id="page2" class="hidden">
     <div id="textBox"></div>
     <button id="nextBtn" class="hidden">ไปต่อ 💕</button>
 </div>
 
-<!-- หน้า 3 (รูป) -->
+<!-- หน้า 3 -->
 <div id="page3" class="hidden">
     <h1>Happy 2 Months 💕</h1>
     <img id="slide" src="img1.jpg.JPG">
 </div>
 
-<!-- เพลง -->
-<audio id="music" loop>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9f1f6b7c6e.mp3?filename=romantic-piano-11058.mp3" type="audio/mpeg">
+<!-- 🎵 เพลงรัก -->
+<audio id="music" loop preload="auto">
+<source src="https://cdn.pixabay.com/audio/2023/03/27/audio_6f1c1a6d7f.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -91,23 +89,29 @@ const nextBtn = document.getElementById("nextBtn");
 const music = document.getElementById("music");
 const slide = document.getElementById("slide");
 
+// 💖 ข้อความ
 const message = "เหมยคะ 2เดือนแล้วนะ โมรักเหมยน๊าา ไอคนเก่งของเค้า ถึงจะทะเลาะกันบ้าง ตีกันบ่อย แต่รักมากเลยนะรู้มั้ย โมไม่อยากให้เหมยจากไปไหน เหมยอยู่กับโมแบบนี้ไปนานๆนะคะ โมรักเหมยนะ 💗";
 
 let i = 0;
 
-// รูป (ต้องตรงกับ GitHub)
+// 🔥 ต้องตรงกับชื่อไฟล์ใน GitHub
 const images = ["img1.jpg.JPG","img2.jpg.JPG","img3.jpg.JPG","img4.jpg.JPG"];
 let imgIndex = 0;
 
-// เริ่ม
+// ▶️ เริ่ม
 startBtn.onclick = () => {
     startBtn.classList.add("hidden");
     page2.classList.remove("hidden");
-    music.play();
+
+    // 🔥 ทำให้เพลงเล่นได้แน่
+    music.muted = false;
+    music.volume = 1;
+    music.play().catch(()=>{});
+
     typeText();
 };
 
-// พิมพ์ทีละตัว
+// ✨ พิมพ์ข้อความทีละตัว
 function typeText(){
     if(i < message.length){
         textBox.innerHTML += message.charAt(i);
@@ -118,7 +122,7 @@ function typeText(){
     }
 }
 
-// ไปหน้ารูป
+// ➡️ ไปหน้ารูป
 nextBtn.onclick = () => {
     page2.classList.add("hidden");
     page3.classList.remove("hidden");
@@ -131,7 +135,7 @@ nextBtn.onclick = () => {
     createHearts();
 };
 
-// หัวใจลอย
+// 💕 หัวใจลอย
 function createHearts(){
     setInterval(()=>{
         let heart = document.createElement("div");
