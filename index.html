@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy 2 Monthsนะที่รัก 💖</title>
+<title>Happy 2 Months 💖</title>
 
 <style>
 body{
@@ -13,9 +13,9 @@ body{
     text-align:center;
     background: linear-gradient(135deg,#ff9a9e,#fad0c4);
     color:white;
-    overflow:hidden;
 }
 
+/* ปุ่ม */
 button{
     margin-top:40vh;
     padding:15px 30px;
@@ -27,77 +27,122 @@ button{
     cursor:pointer;
 }
 
-#content{
+/* ซ่อน */
+.hidden{
     display:none;
 }
 
-.gift{
-    font-size:80px;
-    margin-top:20px;
+/* กล่องข้อความ */
+#textBox{
+    margin-top:30vh;
+    font-size:20px;
+    padding:20px;
 }
 
+/* รูป */
 .slider img{
     width:80%;
     max-width:300px;
     border-radius:20px;
     margin-top:20px;
-    box-shadow:0 10px 20px rgba(0,0,0,0.3);
 }
 
-h1{
-    margin-top:20px;
+/* หัวใจ */
+.heart{
+    position:fixed;
+    animation:float 5s linear infinite;
 }
 
-p{
-    font-size:18px;
+@keyframes float{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(-100vh);}
 }
 </style>
 </head>
 
 <body>
 
+<!-- หน้า 1 -->
 <button id="startBtn">กดสิคะแฟนเค้าา 💖</button>
 
-<div id="content">
+<!-- หน้า 2 (ข้อความ) -->
+<div id="page2" class="hidden">
+    <div id="textBox"></div>
+    <button id="nextBtn" class="hidden">ไปต่อ 💕</button>
+</div>
 
-<div class="gift">🎁</div>
-
-<div class="slider">
-    <!-- 🔥 แก้ตรงนี้ -->
+<!-- หน้า 3 (รูป) -->
+<div id="page3" class="hidden">
+    <h1>Happy 2 Months 💕</h1>
     <img id="slide" src="img1.jpg.JPG">
 </div>
 
-<h1>Happy 2 Months 💕</h1>
-<p>ขอบคุณที่อยู่ด้วยกันนะ เค้ารักเหมยมากๆเลยเย้เย้แบร่ๆ 💖</p>
-
-</div>
-
-<!-- 🎵 เพลงซึ้ง -->
+<!-- เพลง -->
 <audio id="music" loop>
 <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9f1f6b7c6e.mp3?filename=romantic-piano-11058.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-const btn = document.getElementById("startBtn");
-const content = document.getElementById("content");
+const startBtn = document.getElementById("startBtn");
+const page2 = document.getElementById("page2");
+const page3 = document.getElementById("page3");
+const textBox = document.getElementById("textBox");
+const nextBtn = document.getElementById("nextBtn");
 const music = document.getElementById("music");
 const slide = document.getElementById("slide");
 
-// 🔥 แก้ให้ตรงกับไฟล์จริงของคุณ
-const images = ["img1.jpg.JPG","img2.jpg.JPG","img3.jpg.JPG","img4.jpg.JPG"];
+const message = "เหมยคะ 2เดือนแล้วนะ โมรักเหมยน๊าา ไอคนเก่งของเค้า ถึงจะทะเลาะกันบ้าง ตีกันบ่อย แต่รักมากเลยนะรู้มั้ย โมไม่อยากให้เหมยจากไปไหน เหมยอยู่กับโมแบบนี้ไปนานๆนะคะ โมรักเหมยนะ 💗";
 
 let i = 0;
 
-btn.onclick = () => {
-    btn.style.display = "none";
-    content.style.display = "block";
+// รูป (ต้องตรงกับ GitHub)
+const images = ["img1.jpg.JPG","img2.jpg.JPG","img3.jpg.JPG","img4.jpg.JPG"];
+let imgIndex = 0;
+
+// เริ่ม
+startBtn.onclick = () => {
+    startBtn.classList.add("hidden");
+    page2.classList.remove("hidden");
     music.play();
+    typeText();
+};
+
+// พิมพ์ทีละตัว
+function typeText(){
+    if(i < message.length){
+        textBox.innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeText,50);
+    } else {
+        nextBtn.classList.remove("hidden");
+    }
+}
+
+// ไปหน้ารูป
+nextBtn.onclick = () => {
+    page2.classList.add("hidden");
+    page3.classList.remove("hidden");
 
     setInterval(()=>{
-        i = (i+1) % images.length;
-        slide.src = images[i];
+        imgIndex = (imgIndex+1) % images.length;
+        slide.src = images[imgIndex];
     },2000);
+
+    createHearts();
 };
+
+// หัวใจลอย
+function createHearts(){
+    setInterval(()=>{
+        let heart = document.createElement("div");
+        heart.className="heart";
+        heart.innerHTML="💖";
+        heart.style.left=Math.random()*100+"vw";
+        document.body.appendChild(heart);
+
+        setTimeout(()=>heart.remove(),5000);
+    },300);
+}
 </script>
 
 </body>
