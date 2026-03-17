@@ -3,144 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy 2 Months 💖</title>
+
+<title>Happy 2 Monthsนะที่รัก 💖</title>
 
 <style>
 body{
-  margin:0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg,#ff9a9e,#fad0c4);
-  text-align:center;
-  color:white;
-  overflow:hidden;
+    margin:0;
+    font-family:sans-serif;
+    text-align:center;
+    background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+    color:white;
+    overflow:hidden;
 }
 
-#startBtn{
-  margin-top:40vh;
-  padding:15px 30px;
-  font-size:20px;
-  border:none;
-  border-radius:30px;
-  background:white;
-  color:#ff4d6d;
-  cursor:pointer;
+button{
+    margin-top:40vh;
+    padding:15px 30px;
+    font-size:20px;
+    border:none;
+    border-radius:20px;
+    background:white;
+    color:#ff4d6d;
+    cursor:pointer;
 }
 
 #content{
-  display:none;
-  padding:20px;
+    display:none;
 }
 
 .gift{
-  font-size:80px;
-  cursor:pointer;
-  animation: bounce 1s infinite;
-}
-
-@keyframes bounce{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
-}
-
-.slider{
-  width:80%;
-  max-width:400px;
-  margin:auto;
-  border-radius:20px;
-  overflow:hidden;
-  display:none;
+    font-size:80px;
+    margin-top:20px;
 }
 
 .slider img{
-  width:100%;
-  display:none;
+    width:80%;
+    max-width:300px;
+    border-radius:20px;
+    margin-top:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
 }
 
-h1{margin-top:20px;}
-
-.heart{
-  position:absolute;
-  animation:float 5s linear infinite;
+h1{
+    margin-top:20px;
 }
 
-@keyframes float{
-  0%{transform:translateY(0);}
-  100%{transform:translateY(-100vh);}
+p{
+    font-size:18px;
 }
 </style>
 </head>
 
 <body>
 
-<button id="startBtn">กดเพื่อเริ่มเซอร์ไพรส์ 💖</button>
+<button id="startBtn">กดสิคะแฟนเค้าา 💖</button>
 
 <div id="content">
-  <div id="giftBox" class="gift">🎁</div>
 
-  <div class="slider" id="slider">
-    <!-- 📸 ใส่รูปตรงนี้ -->
-    <https://cdn.discordapp.com/attachments/1483122066571001930/1483501388217454722/9A3C5CFA-97FA-417F-9E42-D19D7A6C865D.jpg?ex=69bad1d5&is=69b98055&hm=573395f041a385991456ddae0b8253313aa76b3b5fbc5c79a94cccb58fe34ca6&">
-    <https://cdn.discordapp.com/attachments/1483122066571001930/1483501406727180308/7D55DE57-C672-4F77-B593-D8B37B81DF89.jpg?ex=69bad1d9&is=69b98059&hm=44fe7899c14e6e454f15734912ed60e0076ef4484d2bc17179dd29d5913f896e&">
-    <https://cdn.discordapp.com/attachments/1483122066571001930/1483501420425642054/8AB27202-DDF3-4F3E-8134-7C7E3D0C59F5.jpg?ex=69bad1dc&is=69b9805c&hm=75c4fec8427b4f66fb0783927adad2b67d2720c40ca5f9080cccfee3d8ff4d92&">
-    <https://cdn.discordapp.com/attachments/1483122066571001930/1483501562482528430/73784678-EAA2-4A51-AF7D-9B960477B289.jpg?ex=69bad1fe&is=69b9807e&hm=1bd6901d661d5ce2c2057146e397a4eaab7ff1e5015aa8414b8fd406176be922&>
-  </div>
+<div class="gift">🎁</div>
 
-  <h1 id="text" style="display:none;">
-    Happy 2 Months 💕
-  </h1>
-
-  <p id="msg" style="display:none;">
-    ขอบคุณที่อยู่ด้วยกันนะ รักมากๆเลย 💖
-  </p>
+<div class="slider">
+    <img id="slide" src="img1.jpg">
 </div>
 
-<!-- 🎵 เพลง (พร้อมใช้) -->
+<h1>Happy 2 Months 💕</h1>
+<p>ขอบคุณที่อยู่ด้วยกันนะ เค้ารักเหมยมากๆเลยเย้เย้แบร่ๆ 💖</p>
+
+</div>
+
+<!-- 🎵 เพลง -->
 <audio id="music" loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-document.getElementById("startBtn").onclick = () => {
-  document.getElementById("startBtn").style.display="none";
-  document.getElementById("content").style.display="block";
+const btn = document.getElementById("startBtn");
+const content = document.getElementById("content");
+const music = document.getElementById("music");
+const slide = document.getElementById("slide");
+
+const images = ["img1.jpg","img2.jpg","img3.jpg","img4.jpg"];
+let i = 0;
+
+btn.onclick = () => {
+    btn.style.display = "none";
+    content.style.display = "block";
+    music.play();
+
+    setInterval(()=>{
+        i = (i+1) % images.length;
+        slide.src = images[i];
+    },2000);
 };
-
-document.getElementById("giftBox").onclick = () => {
-  document.getElementById("giftBox").style.display="none";
-  document.getElementById("slider").style.display="block";
-  document.getElementById("text").style.display="block";
-  document.getElementById("msg").style.display="block";
-
-  startSlider();
-  createHearts();
-
-  document.getElementById("music").play();
-};
-
-let index = 0;
-function startSlider(){
-  let images = document.querySelectorAll(".slider img");
-  images[index].style.display = "block";
-
-  setInterval(()=>{
-    images[index].style.display="none";
-    index = (index+1)%images.length;
-    images[index].style.display="block";
-  },2000);
-}
-
-function createHearts(){
-  setInterval(()=>{
-    let heart = document.createElement("div");
-    heart.className="heart";
-    heart.innerHTML="💖";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.fontSize=(Math.random()*20+10)+"px";
-    document.body.appendChild(heart);
-
-    setTimeout(()=>heart.remove(),5000);
-  },300);
-}
 </script>
 
 </body>
